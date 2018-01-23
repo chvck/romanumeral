@@ -8,6 +8,15 @@ import (
 	"github.com/chvck/romanumeral"
 )
 
+const retRoman = "V"
+
+type GeneratorTest struct {
+}
+
+func (g *GeneratorTest) Generate(number int) (string, error) {
+	return retRoman, nil
+}
+
 func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
@@ -42,4 +51,14 @@ func TestRunnerRunWhenNoArgFails(t *testing.T) {
 
 	assert.NotNil(t, err)
 	assert.Nil(t, roman)
+}
+
+func TestRunnerRunWhenValidArgReturnsCorrectly(t *testing.T) {
+	r := romanumeral.Runner{}
+	r.Generator = &GeneratorTest{}
+
+	roman, err := r.Run(5)
+
+	assert.Nil(t, err)
+	assert.Equal(t, retRoman, *roman)
 }
