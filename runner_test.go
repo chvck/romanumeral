@@ -17,6 +17,7 @@ func (g *GeneratorTest) Generate(number int) (string, error) {
 	return retRoman, nil
 }
 
+// When run is called with multiple args then error should be not nil
 func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
@@ -26,6 +27,7 @@ func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
 	assert.Nil(t, roman)
 }
 
+// When run is called with a string arg then error should be not nil
 func TestRunnerRunWhenStringArgFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
@@ -35,6 +37,7 @@ func TestRunnerRunWhenStringArgFails(t *testing.T) {
 	assert.Nil(t, roman)
 }
 
+// When run is called with a float arg then error should be not nil
 func TestRunnerRunWhenFloatArgFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
@@ -44,6 +47,7 @@ func TestRunnerRunWhenFloatArgFails(t *testing.T) {
 	assert.Nil(t, roman)
 }
 
+// When run is called with no arg then error should be not nil
 func TestRunnerRunWhenNoArgFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
@@ -53,6 +57,7 @@ func TestRunnerRunWhenNoArgFails(t *testing.T) {
 	assert.Nil(t, roman)
 }
 
+// When run is called correctly then the correct value should be returned
 func TestRunnerRunWhenValidArgReturnsCorrectly(t *testing.T) {
 	r := romanumeral.Runner{}
 	r.Generator = &GeneratorTest{}
