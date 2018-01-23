@@ -44,6 +44,10 @@ func (generator *RomanNumeralGenerator) Generate(number int) (string, error) {
 		return "", fmt.Errorf("number cannot be greater than 3999 but was %v", number)
 	}
 
+	if number < 1 {
+		return "", fmt.Errorf("number cannot be lower than 1 but was %v", number)
+	}
+
 	roman := ""
 	for _, pair := range generator.symbols {
 		arabic := pair.Arabic
