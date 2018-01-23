@@ -21,7 +21,7 @@ func (g *GeneratorTest) Generate(number int) (string, error) {
 func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
-	roman, err := r.Run(1, 2, 3)
+	roman, err := r.Run("1", "2", "3")
 
 	assert.NotNil(t, err)
 	assert.Nil(t, roman)
@@ -41,7 +41,7 @@ func TestRunnerRunWhenStringArgFails(t *testing.T) {
 func TestRunnerRunWhenFloatArgFails(t *testing.T) {
 	r := romanumeral.Runner{}
 
-	roman, err := r.Run(3.14)
+	roman, err := r.Run("3.14")
 
 	assert.NotNil(t, err)
 	assert.Nil(t, roman)
@@ -62,7 +62,7 @@ func TestRunnerRunWhenValidArgReturnsCorrectly(t *testing.T) {
 	r := romanumeral.Runner{}
 	r.Generator = &GeneratorTest{}
 
-	roman, err := r.Run(5)
+	roman, err := r.Run("5")
 
 	assert.Nil(t, err)
 	assert.Equal(t, retRoman, *roman)
