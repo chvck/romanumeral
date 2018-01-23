@@ -17,11 +17,17 @@ func NewRomanNumeralGenerator() *RomanNumeralGenerator {
 	generator := RomanNumeralGenerator{}
 	pairs := []SymbolPair{
 		SymbolPair{Arabic: 1000, Roman: "M"},
+		SymbolPair{Arabic: 900, Roman: "CM"},
 		SymbolPair{Arabic: 500, Roman: "D"},
+		SymbolPair{Arabic: 400, Roman: "CD"},
 		SymbolPair{Arabic: 100, Roman: "C"},
+		SymbolPair{Arabic: 90, Roman: "XC"},
 		SymbolPair{Arabic: 50, Roman: "L"},
+		SymbolPair{Arabic: 40, Roman: "XL"},
 		SymbolPair{Arabic: 10, Roman: "X"},
+		SymbolPair{Arabic: 9, Roman: "IX"},
 		SymbolPair{Arabic: 5, Roman: "V"},
+		SymbolPair{Arabic: 4, Roman: "IV"},
 		SymbolPair{Arabic: 1, Roman: "I"},
 	}
 
