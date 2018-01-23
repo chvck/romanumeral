@@ -40,9 +40,12 @@ func NewRomanNumeralGenerator() *RomanNumeralGenerator {
 func (generator *RomanNumeralGenerator) Generate(number int) (string, error) {
 	roman := ""
 	for _, pair := range generator.symbols {
-		if pair.Arabic == number {
-			roman = pair.Roman
+		arabic := pair.Arabic
+		for number >= arabic {
+			number = number - arabic
+			roman = roman + pair.Roman
 		}
 	}
+
 	return roman, nil
 }
