@@ -207,3 +207,13 @@ func TestGenerateWhen4000ThenError(t *testing.T) {
 	assert.NotNil(t, err)
 	assert.Equal(t, "", rNumeral)
 }
+
+// When 0 is provided then error should be returned
+func TestGenerateWhen0ThenError(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(0)
+
+	assert.NotNil(t, err)
+	assert.Equal(t, "", rNumeral)
+}
