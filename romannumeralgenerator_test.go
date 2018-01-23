@@ -197,3 +197,13 @@ func TestGenerateWhen2222ThenMMXXII(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, "MMCCXXII", rNumeral)
 }
+
+// When 4000 is provided then error should be returned
+func TestGenerateWhen4000ThenError(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(4000)
+
+	assert.NotNil(t, err)
+	assert.Equal(t, "", rNumeral)
+}
