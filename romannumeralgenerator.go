@@ -1,5 +1,7 @@
 package romanumeral
 
+import "fmt"
+
 // IRomanNumeralGenerator is the interface for converting
 // Arabic numerals to Roman numerals
 type IRomanNumeralGenerator interface {
@@ -38,6 +40,10 @@ func NewRomanNumeralGenerator() *RomanNumeralGenerator {
 
 // Generate a string Roman numeral from an integer number
 func (generator *RomanNumeralGenerator) Generate(number int) (string, error) {
+	if number >= 4000 {
+		return "", fmt.Errorf("number cannot be greater than 3999 but was %v", number)
+	}
+
 	roman := ""
 	for _, pair := range generator.symbols {
 		arabic := pair.Arabic
