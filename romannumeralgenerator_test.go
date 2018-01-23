@@ -137,3 +137,63 @@ func TestGenerateWhen900ThenCM(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, "CM", rNumeral)
 }
+
+// When 20 is provided then XX should be the value
+func TestGenerateWhen20ThenXX(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(20)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "XX", rNumeral)
+}
+
+// When 3999 is provided then MMMCMXCIX should be the value
+func TestGenerateWhen3999ThenMMMCMXCIX(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(3999)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "MMMCMXCIX", rNumeral)
+}
+
+// When 73 is provided then LXXIII should be the value
+func TestGenerateWhen73ThenLXXIII(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(73)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "LXXIII", rNumeral)
+}
+
+// When 459 is provided then CDLIX should be the value
+func TestGenerateWhen459ThenCDLIX(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(459)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "CDLIX", rNumeral)
+}
+
+// When 1381 is provided then MCCCLXXXI should be the value
+func TestGenerateWhen1381ThenMCCCLXXXI(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(1381)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "MCCCLXXXI", rNumeral)
+}
+
+// When 2222 is provided then MMXXII should be the value
+func TestGenerateWhen2222ThenMMXXII(t *testing.T) {
+	generator := romanumeral.NewRomanNumeralGenerator()
+
+	rNumeral, err := generator.Generate(2222)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "MMCCXXII", rNumeral)
+}
