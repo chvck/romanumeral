@@ -1,11 +1,11 @@
-package romanumeral_test
+package run_test
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/chvck/romanumeral"
+	"github.com/chvck/romanumeral/run"
 )
 
 const retRoman = "V"
@@ -19,7 +19,7 @@ func (g *GeneratorTest) Generate(number int) (string, error) {
 
 // When run is called with multiple args then error should be not nil
 func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
-	r := romanumeral.Runner{}
+	r := run.Runner{}
 
 	roman, err := r.Run("1", "2", "3")
 
@@ -29,7 +29,7 @@ func TestRunnerRunWhenMultipleArgsFails(t *testing.T) {
 
 // When run is called with a string arg then error should be not nil
 func TestRunnerRunWhenStringArgFails(t *testing.T) {
-	r := romanumeral.Runner{}
+	r := run.Runner{}
 
 	roman, err := r.Run("one")
 
@@ -39,7 +39,7 @@ func TestRunnerRunWhenStringArgFails(t *testing.T) {
 
 // When run is called with a float arg then error should be not nil
 func TestRunnerRunWhenFloatArgFails(t *testing.T) {
-	r := romanumeral.Runner{}
+	r := run.Runner{}
 
 	roman, err := r.Run("3.14")
 
@@ -49,7 +49,7 @@ func TestRunnerRunWhenFloatArgFails(t *testing.T) {
 
 // When run is called with no arg then error should be not nil
 func TestRunnerRunWhenNoArgFails(t *testing.T) {
-	r := romanumeral.Runner{}
+	r := run.Runner{}
 
 	roman, err := r.Run()
 
@@ -59,7 +59,7 @@ func TestRunnerRunWhenNoArgFails(t *testing.T) {
 
 // When run is called correctly then the correct value should be returned
 func TestRunnerRunWhenValidArgReturnsCorrectly(t *testing.T) {
-	r := romanumeral.NewRunnerWithGenerator(&GeneratorTest{})
+	r := run.NewRunnerWithGenerator(&GeneratorTest{})
 
 	roman, err := r.Run("5")
 

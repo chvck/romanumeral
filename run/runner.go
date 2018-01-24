@@ -1,18 +1,20 @@
-package romanumeral
+package run
 
 import (
 	"fmt"
 	"strconv"
+
+	"github.com/chvck/romanumeral"
 )
 
 // Runner is called from main and is resposible for running the application
 type Runner struct {
-	generator IRomanNumeralGenerator
+	generator romanumeral.IRomanNumeralGenerator
 }
 
 // NewRunnerWithGenerator initializes and returns a new Runner, using
 // the specified generator
-func NewRunnerWithGenerator(generator IRomanNumeralGenerator) *Runner {
+func NewRunnerWithGenerator(generator romanumeral.IRomanNumeralGenerator) *Runner {
 	r := &Runner{}
 	r.generator = generator
 
@@ -22,7 +24,7 @@ func NewRunnerWithGenerator(generator IRomanNumeralGenerator) *Runner {
 // NewRunner initializes and returns a new Runner
 func NewRunner() *Runner {
 	r := &Runner{}
-	r.generator = NewRomanNumeralGenerator()
+	r.generator = romanumeral.NewRomanNumeralGenerator()
 
 	return r
 }
