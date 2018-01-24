@@ -7,13 +7,22 @@ import (
 
 // Runner is called from main and is resposible for running the application
 type Runner struct {
-	Generator IRomanNumeralGenerator
+	generator IRomanNumeralGenerator
+}
+
+// NewRunnerWithGenerator initializes and returns a new Runner, using
+// the specified generator
+func NewRunnerWithGenerator(generator IRomanNumeralGenerator) *Runner {
+	r := &Runner{}
+	r.generator = generator
+
+	return r
 }
 
 // NewRunner initializes and returns a new Runner
 func NewRunner() *Runner {
 	r := &Runner{}
-	r.Generator = NewRomanNumeralGenerator()
+	r.generator = NewRomanNumeralGenerator()
 
 	return r
 }
@@ -27,7 +36,7 @@ func (r *Runner) Run(args ...string) (*string, error) {
 	if number, err := strconv.Atoi(args[0]); err != nil {
 		return nil, fmt.Errorf("number passed must be an integer number")
 	} else {
-		roman, err := r.Generator.Generate(number)
+		roman, err := r.generator.Generate(number)
 		return &roman, err
 	}
 }

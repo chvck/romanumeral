@@ -59,8 +59,7 @@ func TestRunnerRunWhenNoArgFails(t *testing.T) {
 
 // When run is called correctly then the correct value should be returned
 func TestRunnerRunWhenValidArgReturnsCorrectly(t *testing.T) {
-	r := romanumeral.Runner{}
-	r.Generator = &GeneratorTest{}
+	r := romanumeral.NewRunnerWithGenerator(&GeneratorTest{})
 
 	roman, err := r.Run("5")
 
